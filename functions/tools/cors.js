@@ -5,7 +5,7 @@ const cors = (req, res, next) => {
     let allowedOrigins = DOMAINS.split(',');
     console.log('origin',origin);
     let {client_token} = req.headers;
-    console.log('token=====',client_token);
+    //console.log('token=====',client_token);
     if(allowedOrigins.indexOf(origin) > -1){
        res.setHeader('Access-Control-Allow-Origin', origin);
     }
@@ -31,7 +31,7 @@ const cors = (req, res, next) => {
     }
     
     //res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,Accept,authtoken');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,Accept,authtoken,project');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
     if (req.method === 'OPTIONS') {
         return res.sendStatus(204);

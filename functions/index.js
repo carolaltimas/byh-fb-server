@@ -11,7 +11,13 @@ const app = express();
 //const db = admin.firestore();
 
 app.use(jsonParser);
+//cors middleware
 app.use(cors);
+//test mode middleware
+app.use((req, res, next) => {
+    req.project = req.headers.project ? req.headers.project : 'TEST';
+    next();
+});
 app.use('/api',mainRouter);
 //generic error handler
 app.use((req,res,next) => {
@@ -20,7 +26,7 @@ app.use((req,res,next) => {
     console.log('error: ',err);
     return res.json({
         message:'An error occured',
-        error:err
+        error:err.message ? err.message : err
     })
 });
 /*
