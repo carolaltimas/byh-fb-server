@@ -1,8 +1,10 @@
 {
-	"hosting":{
-		"rewrites":[{
-			"source":"**",
-			"function":"app"
-		}]
-	}
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "app"
+      }
+    ]
+  }
 }
